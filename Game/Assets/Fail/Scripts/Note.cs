@@ -7,17 +7,19 @@ using UnityEngine.UIElements;
 public class Note : MonoBehaviour
 {
     private Rigidbody2D rigid;
+    private GameObject HpManager;
+    private HP hp;
     [SerializeField]
     private float speed;
-
+    
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
-        rigid.velocity = Vector3.down * speed;
-        if(transform.position.y <= 0f)
+        rigid.velocity = Vector3.down * speed * Time.fixedDeltaTime;
+        if(transform.position.y <= -2.5f)
         {
             if (tag == "Atile")
             {
@@ -50,6 +52,9 @@ public class Note : MonoBehaviour
         }
         if (transform.position.y < -8)
         {
+            Draw.DrawText("Miss");
+            hp = HpManager.GetComponent<HP>();
+            hp.ManageHp();
             GameObject.Destroy(gameObject);
         }
     }

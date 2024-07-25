@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Judgement : MonoBehaviour
 {
-    
-    public static void TimeCheck(GameObject Note)
+    private static HP hp;
+    private void Start()
     {
-        if(Note.transform.position.y <= -3.8f && Note.transform.position.y >= -4.2f)
+        hp = GetComponent<HP>();
+    }
+    public static void TimeCheck(GameObject Note)
+    { 
+        if (Note.transform.position.y <= -3.6f && Note.transform.position.y >= -4.4f)
         {
             Draw.DrawText("perfect");
             Destroy(Note.gameObject);
@@ -20,11 +24,6 @@ public class Judgement : MonoBehaviour
         else if(Note.transform.position.y <= -2.5f && Note.transform.position.y >= -5.5f)
         {
             Draw.DrawText("good");
-            Destroy(Note.gameObject);
-        }
-        else
-        {
-            Draw.DrawText("Miss");
             Destroy(Note.gameObject);
         }
     }
