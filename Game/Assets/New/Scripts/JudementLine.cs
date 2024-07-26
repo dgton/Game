@@ -15,11 +15,11 @@ public class JudementLine : MonoBehaviour
     {
         if (Input.GetKeyDown(Key))
         {
-            rend.color = Color.gray;
+            rend.color = new Color(0.7216981f, 1f, 0.7788996f, 1f);
         }
         if (Input.GetKeyUp(Key))
         {
-            rend.color = Color.clear;
+            rend.color = new Color(1, 1, 1, 0);
         }
     }
 }

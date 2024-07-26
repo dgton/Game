@@ -27,6 +27,8 @@ public class note : MonoBehaviour
                 Debug.Log("Perfect");
             }
         }
+        if(transform.position.y <= -20)
+            Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,4 +52,6 @@ public class note : MonoBehaviour
             }
         }
     }
+
+
 }

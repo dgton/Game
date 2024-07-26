@@ -12,14 +12,14 @@ public class Combo : MonoBehaviour
     {
         combonum = 0;
         txt = GetComponent<TextMeshProUGUI>();
-        txt.text = "Combo\n";
+        txt.text = "";
     }
 
     private void Update()
     {
-        if(txt.text != "Combo\n     " + combonum.ToString() && combonum != 0)
+        if(txt.text != "Combo\n    " + combonum.ToString())
         {
-            txt.text = "Combo\n     " + combonum.ToString();
+            txt.text = "Combo\n    " + combonum.ToString();
         }
     }
 
