@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class note : MonoBehaviour
+public class Longnote : MonoBehaviour
 {
     [SerializeField]
-    private KeyCode ClickKey;
+    private KeyCode Key;
     private bool ClickTime;
     private HpManage hp;
     private void Start()
@@ -16,19 +16,28 @@ public class note : MonoBehaviour
             hp = obj.GetComponent<HpManage>();
         }
     }
+
     private void Update()
     {
-        if (ClickTime)
+        if (ClickTime) 
         {
-            if (Input.GetKeyDown(ClickKey))
+            if (Input.GetKeyDown(Key))
             {
-                gameObject.SetActive(false);
                 Combo.ManageCombo("perfect");
                 Debug.Log("Perfect");
             }
+            if (Input.GetKeyUp(Key))
+            {
+                Combo.ManageCombo("miss");
+                Debug.Log("Miss");
+                Destroy(gameObject);
+            }
         }
+
         if(transform.position.y <= -20)
+        {
             Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,20 +47,12 @@ public class note : MonoBehaviour
             ClickTime = true;
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Judgement")
-        {
-            if (gameObject.activeSelf)
-            {
-                gameObject.SetActive(false);
-                Combo.ManageCombo("miss");
-                hp.HPmanage(2f);
-                Debug.Log("Miss");
-            }
-        }
+        
     }
+
+
 
 
 }
