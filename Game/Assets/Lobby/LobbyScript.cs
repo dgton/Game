@@ -10,5 +10,8 @@ public class LobbyScript : MonoBehaviour
         SceneManager.LoadScene("NewGame");
     }
 
-
+    public void GoFolern()
+    {
+        SceneManager.LoadScene("FolernScene");
+    }
 }

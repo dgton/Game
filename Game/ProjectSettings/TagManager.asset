@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Atile
-  - Stile
-  - Jtile
-  - Ktile
   - Judgement
+  - Line
+  - using
+  - Note
+  - Anote
+  - Snote
+  - Jnote
+  - Knote
   layers:
   - Default
   - TransparentFX

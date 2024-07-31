@@ -18,6 +18,9 @@ public class PanelManager : MonoBehaviour
     public GameObject PM;
     public GameObject LobbyButton;
     public GameObject RestartButton;
+    public GameObject JudgeText;
+    public GameObject Greatnum;
+    public GameObject Goodnum;
     private void Start()
     {
         sprite = GetComponent<Image>();
@@ -43,8 +46,13 @@ public class PanelManager : MonoBehaviour
             Perfectnum.GetComponent<TextMeshProUGUI>().text = Combo.Perfect.ToString();
             Missnum.SetActive(true);
             Missnum.GetComponent<TextMeshProUGUI>().text = Combo.Miss.ToString();
+            Greatnum.SetActive(true);
+            Greatnum.GetComponent<TextMeshProUGUI>().text = Combo.Great.ToString();
+            Goodnum.SetActive(true);
+            Goodnum.GetComponent<TextMeshProUGUI>().text = Combo.Good.ToString();
             LobbyButton.SetActive(true);
             RestartButton.SetActive(true);
+            JudgeText.GetComponent<TextMeshProUGUI>().color = new Color(0, 0, 0, 0);
         }
 
         else if(PF == "Fail")
@@ -53,14 +61,20 @@ public class PanelManager : MonoBehaviour
             sprite.color = new Color(0, 0, 0, 1);
             Audio.GetComponent<AudioSource>().Stop();
             NoteObject.speed = 0;
+            FNoteObject.speed = 0;
             Fail.SetActive(true);
             PM.SetActive(true);
             Perfectnum.SetActive(true);
             Perfectnum.GetComponent<TextMeshProUGUI>().text = Combo.Perfect.ToString();
             Missnum.SetActive(true);
             Missnum.GetComponent<TextMeshProUGUI>().text = Combo.Miss.ToString();
+            Greatnum.SetActive(true);
+            Greatnum.GetComponent<TextMeshProUGUI>().text = Combo.Great.ToString();
+            Goodnum.SetActive(true);
+            Goodnum.GetComponent<TextMeshProUGUI>().text = Combo.Good.ToString();
             LobbyButton.SetActive(true);
             RestartButton.SetActive (true);
+            JudgeText.GetComponent<TextMeshProUGUI>().color = new Color(0, 0, 0, 0);
         }
     }
 

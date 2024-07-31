@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Combo : MonoBehaviour
@@ -9,10 +10,14 @@ public class Combo : MonoBehaviour
     private TextMeshProUGUI txt;
     public static int Perfect = 0;
     public static int Miss = 0;
+    public static int Great = 0;
+    public static int Good = 0;
 
     private void Start()
     {
         Perfect = 0;
+        Great = 0;
+        Good = 0;
         Miss = 0;
         combonum = 0;
         txt = GetComponent<TextMeshProUGUI>();
@@ -21,9 +26,9 @@ public class Combo : MonoBehaviour
 
     private void Update()
     {
-        if(txt.text != "Combo\n    " + combonum.ToString())
+        if(txt.text != "Combo\n" + combonum.ToString())
         {
-            txt.text = "Combo\n    " + combonum.ToString();
+            txt.text = "Combo\n" + combonum.ToString();
         }
     }
 
@@ -33,6 +38,18 @@ public class Combo : MonoBehaviour
         {
             combonum++;
             Perfect++;
+        }
+
+        else if(_pm == "great")
+        {
+            combonum++;
+            Great++;
+        }
+
+        else if(_pm == "good")
+        {
+            combonum = 0;
+            Good++;
         }
         
         else if (_pm == "miss")
