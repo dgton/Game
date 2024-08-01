@@ -14,4 +14,9 @@ public class LobbyScript : MonoBehaviour
     {
         SceneManager.LoadScene("FolernScene");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
